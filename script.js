@@ -4,6 +4,7 @@ const selectNode = (elementId) => {
 
 const plusNode = selectNode('#plus')
 const minusNode = selectNode('#minus')
+const incCheckbox = selectNode('#incCheck')
 
 const createEventListener = (node, event, func) => {
     node.addEventListener(event, func);
@@ -25,3 +26,17 @@ const renderValueToCounter = () => {
 
 let counter = 0;
 renderValueToCounter();
+
+let intervalId
+
+createEventListener(incCheckbox, "change", e => {
+    if (e.target.checked) {
+        intervalId = setInterval(() => {
+            counter += 1;
+            renderValueToCounter();
+        }, 10);
+    } else {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+})
