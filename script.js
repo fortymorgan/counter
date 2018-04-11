@@ -2,12 +2,15 @@ const selectNode = (elementId) => {
     return document.querySelector(elementId)
 }
 
-selectNode('#plus').addEventListener("click", e => {
+const plusNode = selectNode('#plus')
+const minusNode = selectNode('#minus')
+
+plusNode.addEventListener("click", e => {
     counter += 1;
     renderValueToCounter();
 })
 
-selectNode('#minus').addEventListener("click", e => {
+minusNode.addEventListener("click", e => {
     counter -= 1;
     renderValueToCounter();
 })
