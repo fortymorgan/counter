@@ -5,16 +5,16 @@ const selectNode = (elementId) => {
 const plusNode = selectNode('#plus')
 const minusNode = selectNode('#minus')
 
-const createEventListener = (node, func) => {
-    node.addEventListener("click", func);
+const createEventListener = (node, event, func) => {
+    node.addEventListener(event, func);
 }
 
-createEventListener(plusNode, e => {
+createEventListener(plusNode, "click", e => {
     counter += 1;
     renderValueToCounter();
 })
 
-createEventListener(minusNode, e => {
+createEventListener(minusNode, "click", e => {
     counter -= 1;
     renderValueToCounter();
 })
