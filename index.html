@@ -3,21 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>My project</title>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <div>
-            <p style="font-size: 32px" id='counter'></p>
+        <h1>Counter with features</h1>
+        <div class="count">
+            <span style="font-size: 32px" id='counter'></span>
         </div>
-        <div>
+        <div class="buttons">
             <button id='plus'>+</button>
             <button id='minus'>-</button>
         </div>
-        <div>
+        <div class="checks">
             <input type="checkbox" id="incCheck">
             <label for="incCheck">Auto increment</label>
         </div>
-        <div>
-            1<input type="range" id="incFreq" min="1" max="10" step="1" value="1">10<br>
+        <div class="increm">
+            1<input type="range" id="incFreq" min="1" max="10" step="1" value="1">10
             <label for="incFreq">Increment frequency: </label><output></output>
         </div>
             <script src="script.js"></script>
