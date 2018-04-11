@@ -24,3 +24,4 @@ const renderValueToCounter = () => {
 }
 
 let counter = 0;
+renderValueToCounter();
