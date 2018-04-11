@@ -1,13 +1,13 @@
 const selectNode = (elementId) => {
-    return document.querySelector(elementId)
+    return document.querySelector(elementId);
 }
 
-const plusNode = selectNode('#plus')
-const minusNode = selectNode('#minus')
-const countTxt = selectNode('#counter')
-const incCheckbox = selectNode('#incCheck')
-const incFreq = selectNode('#incFreq')
-const output = selectNode('output')
+const plusNode = selectNode('#plus');
+const minusNode = selectNode('#minus');
+const countTxt = selectNode('#counter');
+const incCheckbox = selectNode('#incCheck');
+const incFreq = selectNode('#incFreq');
+const output = selectNode('output');
 
 const createEventListener = (node, event, func) => {
     node.addEventListener(event, func);
@@ -24,7 +24,7 @@ createEventListener(minusNode, "click", e => {
 })
 
 const renderValueInNode = (node, value) => {
-    node.innerText = `${value}`
+    node.innerText = `${value}`;
 }
 
 let counter = 0;
@@ -45,11 +45,11 @@ createEventListener(incCheckbox, "change", e => {
 })
 
 let incrementFrequency = 1;
-renderValueInNode(output, incrementFrequency)
+renderValueInNode(output, incrementFrequency);
 
 createEventListener(incFreq, "change", e => {
     incrementFrequency = +e.target.value;
-    renderValueInNode(output, incrementFrequency)
+    renderValueInNode(output, incrementFrequency);
 
     if (intervalId !== null) {
         clearInterval(intervalId);
