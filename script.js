@@ -4,6 +4,7 @@ const selectNode = (elementId) => {
 
 const plusNode = selectNode('#plus')
 const minusNode = selectNode('#minus')
+const countTxt = selectNode('#counter')
 const incCheckbox = selectNode('#incCheck')
 const incFreq = selectNode('#incFreq')
 const output = selectNode('output')
@@ -14,20 +15,20 @@ const createEventListener = (node, event, func) => {
 
 createEventListener(plusNode, "click", e => {
     counter += 1;
-    renderValueToCounter();
+    renderValueInNode(countTxt, counter);
 })
 
 createEventListener(minusNode, "click", e => {
     counter -= 1;
-    renderValueToCounter();
+    renderValueInNode(countTxt, counter);
 })
 
-const renderValueToCounter = () => {
-    document.querySelector('#counter').innerText = `${counter}`
+const renderValueInNode = (node, value) => {
+    node.innerText = `${value}`
 }
 
 let counter = 0;
-renderValueToCounter();
+renderValueInNode(countTxt, counter);
 
 let intervalId = null;
 
@@ -35,7 +36,7 @@ createEventListener(incCheckbox, "change", e => {
     if (e.target.checked) {
         intervalId = setInterval(() => {
             counter += 1;
-            renderValueToCounter();
+            renderValueInNode(countTxt, counter);
         }, 1000 / incrementFrequency);
     } else {
         clearInterval(intervalId);
@@ -44,17 +45,17 @@ createEventListener(incCheckbox, "change", e => {
 })
 
 let incrementFrequency = 1;
-output.innerText = `${incrementFrequency}`
+renderValueInNode(output, incrementFrequency)
 
 createEventListener(incFreq, "change", e => {
     incrementFrequency = +e.target.value;
-    output.innerText = `${incrementFrequency}`
+    renderValueInNode(output, incrementFrequency)
 
     if (intervalId !== null) {
         clearInterval(intervalId);
         intervalId = setInterval(() => {
             counter += 1;
-            renderValueToCounter();
+            renderValueInNode(countTxt, counter);
         }, 1000 / incrementFrequency);
     }
 })
