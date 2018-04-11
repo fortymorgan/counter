@@ -1,8 +1,13 @@
-document.querySelector('#plus').addEventListener("click", e => {
+const selectNode = (elementId) => {
+    return document.querySelector(elementId)
+}
+
+selectNode('#plus').addEventListener("click", e => {
     counter += 1;
     renderValueToCounter();
 })
-document.querySelector('#minus').addEventListener("click", e => {
+
+selectNode('#minus').addEventListener("click", e => {
     counter -= 1;
     renderValueToCounter();
 })
